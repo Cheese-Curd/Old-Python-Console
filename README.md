@@ -58,3 +58,4 @@ No? Yeah me neither I was just bored lol
 >	Memory: 17041MB OK<br>
 >	Memory test took 53 Seconds
 * *The more memory the longer it was take, check out the BIOS settings to turn off the POST test*
+* Accurate as of 12/18/2023, revision, version, or look may be different past this date
