@@ -6,10 +6,6 @@
 Ever wanted a shitty version of DOS made in Python by one person that knows a decent amount of Python3?
 No? Yeah me neither I was just bored lol
 
-<style>
-	table, th, td { border:1px solid black; }
-</style>
-
 <table style="width:100%">
   <tr>
     <th>Command</td>
