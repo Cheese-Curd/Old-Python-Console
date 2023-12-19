@@ -1,5 +1,5 @@
-> <code>A:/>README.BAT</code><br>
-> <code>Running README.BAT...</code>
+> A:/>README.BAT<br>
+> Running README.BAT...
 
 # <code>*Old-Styled Python Terminal*</code>
 
