@@ -53,7 +53,6 @@ No? Yeah me neither I was just bored lol
 
 ## <code>*Now containing a "working" POST test!*</code>
 
-> <code>
 >	EBIOS(C)2023 Eliana<br>
 >	ELIANA BIOS REVISION 0004 VERSION 0.3<br>
 >	CPU : Intel64 Family 6 Model 165 Stepping 3, GenuineIntel @ 3.6GHz<br>
@@ -62,5 +61,4 @@ No? Yeah me neither I was just bored lol
 >	Initializing USB Controllers ... Done.<br>
 >	Memory: 17041MB OK<br>
 >	Memory test took 53 Seconds
-> </code>
 * *The more memory the longer it was take, check out the BIOS settings to turn off the POST test*
