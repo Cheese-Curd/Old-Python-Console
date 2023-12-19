@@ -1,0 +1,11 @@
+{
+	"doPOST": false,
+	"version": "0.3",
+	"revision": "0004",
+
+	"bootOrder":
+	[
+		"A",
+		"TEMPLATE"
+	]
+}
