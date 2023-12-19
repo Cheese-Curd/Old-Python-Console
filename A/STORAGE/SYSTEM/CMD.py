@@ -79,8 +79,10 @@ register("dir", "Directory view", draw.COLOR.RED)
 register("cd", "Displays/changes the current directory", draw.COLOR.RED)
 register("chdir", "Displays/changes the current directory", draw.COLOR.RED)
 register("cls", "Clear screen")
+register("clear", "Clear screen")
 register("set", "Change variables")
 register("ver", "View the reported OS version")
+register("version", "View the reported OS version")
 register("exit", "Exits from the shell")
 # Register Variables that can be changed
 register("takinginput", f"Vital for system running. Current value: {draw.COLOR.BLUE}{takingInput}", command=False)
@@ -104,14 +106,14 @@ def displayRegister(command=True): # Made this first try, I love existing
 			draw.text(f"{draw.OTHER.B}{var["name"].upper()}", var["overrideColor"], end="")
 			draw.text(f"{" " * (maxVARLength - len(var["name"]) + 4)}> {var["description"]}.")
 
-def shutdown(reason:str):
+def shutdown(reason:str=None):
 	global takingInput
-	
+
 	takingInput = False
 	sys.wipeScreen()
 	os.system('color 0f')
 	draw.text("SHUTTING DOWN", end="")
-	if reason != "":
+	if reason is not None:
 		draw.text(f": {reason.upper()}")
 	sys.time.sleep(1.9)
 	sys.winsound.Beep(500, 100)
@@ -160,10 +162,14 @@ while takingInput:
 				draw.blank(1)
 		case "cls":
 			sys.wipeScreen()
+		case "clear":
+			sys.wipeScreen()
 		case "exit":
 			safeExit = True
 			shutdown()
 		case "ver":
+			draw.text(f"Reported OS version: {osInfo["shellName"]}(C) version {osInfo["shellVer"]}.")
+		case "version":
 			draw.text(f"Reported OS version: {osInfo["shellName"]}(C) version {osInfo["shellVer"]}.")
 		case "set":
 			if args[0] == "":
