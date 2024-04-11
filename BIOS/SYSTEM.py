@@ -3,10 +3,18 @@ import psutil
 import cpuinfo
 import time
 import os
-import winsound
+if platform.system() == "Windows":
+	import winsound
+
+def beep(frequency, duration):
+	if platform.system() == 'Windows':
+		winsound.Beep(frequency, duration)
 
 def wipeScreen():
-	os.system('cls')
+	if platform.system() == "Windows":
+		os.system('cls')
+	else:
+		os.system('clear')
 
 def pause(length:float):
 	time.sleep(length)

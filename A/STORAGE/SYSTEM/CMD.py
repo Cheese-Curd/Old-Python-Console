@@ -18,7 +18,7 @@ curDrive = "A"
 curPath = ""
 safeExit = False
 
-draw.text(f"{osInfo["shellName"]}2023", draw.COLOR.PURPLE)
+draw.text(f"{osInfo['shellName']}2023", draw.COLOR.PURPLE)
 draw.blank(1)
 draw.text('Type "HELP" for a list of commands.', draw.COLOR.PURPLE)
 
@@ -97,35 +97,39 @@ def displayRegister(command=True): # Made this first try, I love existing
 		for i in commands.keys():
 			cmd = commands[i]
 			draw.text("<", end="")
-			draw.text(f"{draw.OTHER.B}{cmd["name"].upper()}", cmd["overrideColor"], end="")
-			draw.text(f"{" " * (maxCMDLength - len(cmd["name"]) + 4)}> {cmd["description"]}.")
+			draw.text(f"{draw.OTHER.B}{cmd['name'].upper()}", cmd['overrideColor'], end="")
+			draw.text(f"{' ' * (maxCMDLength - len(cmd['name']) + 4)}> {cmd['description']}.")
 	else:
 		for i in variables.keys():
 			var = variables[i]
 			draw.text("<", end="")
-			draw.text(f"{draw.OTHER.B}{var["name"].upper()}", var["overrideColor"], end="")
-			draw.text(f"{" " * (maxVARLength - len(var["name"]) + 4)}> {var["description"]}.")
+			draw.text(f"{draw.OTHER.B}{var['name'].upper()}", var['overrideColor'], end="")
+			draw.text(f"{' '* (maxVARLength - len(var['name']) + 4)}> {var['description']}.")
 
 def shutdown(reason:str=None):
 	global takingInput
 
 	takingInput = False
 	sys.wipeScreen()
-	os.system('color 0f')
+	if sys.platform.system() == "Windows":
+		os.system('color 0f')
+	# else:
+		# This half works, I need to do more research into this lol
+		# os.system('tput setab 4')
 	draw.text("SHUTTING DOWN", end="")
 	if reason is not None:
 		draw.text(f": {reason.upper()}")
 	sys.time.sleep(1.9)
-	sys.winsound.Beep(500, 100)
+	sys.beep(500, 100)
 	sys.wipeScreen()
 	exit()
 
 def errScreen(code:str, desc:str):
 	sys.wipeScreen()
 	os.system('color 1f')
-	draw.text(f"ERROR: {code}{" " * ((len(desc) - len(code)) + 1)}")
+	draw.text(f"ERROR: {code}{' ' * ((len(desc) - len(code)) + 1)}")
 	draw.text(f'      "{desc}"')
-	sys.winsound.Beep(500, 1500)
+	sys.beep(500, 1500)
 	shutdown("crash")
 
 sysInfo = sys.getSystemInfo()
@@ -168,9 +172,9 @@ while takingInput:
 			safeExit = True
 			shutdown()
 		case "ver":
-			draw.text(f"Reported OS version: {osInfo["shellName"]}(C) version {osInfo["shellVer"]}.")
+			draw.text(f"Reported OS version: {osInfo['shellName']}(C) version {osInfo['shellVer']}.")
 		case "version":
-			draw.text(f"Reported OS version: {osInfo["shellName"]}(C) version {osInfo["shellVer"]}.")
+			draw.text(f"Reported OS version: {osInfo['shellName']}(C) version {osInfo['shellVer']}.")
 		case "set":
 			if args[0] == "":
 				displayRegister(False)

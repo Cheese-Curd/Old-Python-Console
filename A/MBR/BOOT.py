@@ -4,4 +4,4 @@ import os
 path = "SYSTEM" # Path to Script
 script = "CMD"  # Script name
 os.chdir(f"../STORAGE/{path}/") # Go to path
-os.system(f"py {script}.py")   # Go to script
+os.system(f"python3 {script}.py")   # Go to script
