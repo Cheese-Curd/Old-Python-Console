@@ -35,7 +35,7 @@ def transferControl():
 	global biosSet
 
 	system.changeDir(f"{biosSet['bootOrder'][0]}/MBR") # Change DIR to top boot order MBR
-	system.os.system("python3 BOOT.py") # Run Boot Script
+	system.os.system("python BOOT.py") # Run Boot Script
 
 if __name__ == "__main__":
 	if system.platform.system() == "Windows":
